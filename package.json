@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Alexandr-exe/news-explorer-frontend-diplom/issues"
   },
-  "homepage": "https://github.com/Alexandr-exe/news-explorer-frontend-diplom#readme"
+  "homepage": "https://github.com/Alexandr-exe/news-explorer-frontend-diplom#readme",
+  "devDependencies": {
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
 }

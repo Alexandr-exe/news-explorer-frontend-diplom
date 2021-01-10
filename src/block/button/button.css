@@ -1,0 +1,10 @@
+@import './__auth/button__auth.css';
+@import './__search/button__search.css';
+@import './__desktop/button__desktop.css';
+@import './__more/button__more.css';
+@import './__active/button__active.css';
+@import './__disabled/button__disabled.css';
+
+.button {
+ cursor: pointer; 
+}

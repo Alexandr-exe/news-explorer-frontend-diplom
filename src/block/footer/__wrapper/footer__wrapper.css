@@ -1,0 +1,22 @@
+.footer__wrapper {
+  max-width: 1024px;
+  box-sizing: border-box;
+  padding: 21px 16px;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px){
+  .footer__wrapper{
+    display: flex ;
+    padding: 20px 40px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .footer__wrapper{
+    padding: 27px 104px;
+    max-width: 1232px;
+  }
+}

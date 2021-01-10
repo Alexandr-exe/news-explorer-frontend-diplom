@@ -1,0 +1,22 @@
+.header__title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 40px;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .header__title {
+    max-width: 280px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header__title {
+    max-width: 608px;
+    font-size: 60px;
+    line-height: 64px;
+  }
+}

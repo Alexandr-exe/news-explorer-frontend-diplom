@@ -1,0 +1,21 @@
+.result-search__card {
+  display: grid;
+  column-gap: 8px;
+  row-gap: 10px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 288px));
+}
+
+@media screen and (min-width: 768px) {
+  .result-search__card {
+    grid-template-columns: 224px 224px 224px;
+    ;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .result-search__card {
+    grid-template-columns: 400px 400px 400px;
+    
+  }
+}

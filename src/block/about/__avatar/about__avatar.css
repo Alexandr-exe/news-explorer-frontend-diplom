@@ -1,0 +1,20 @@
+.about__avatar {
+  width: 272px;
+  border-radius: 100%;
+  margin: 0 0 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .about__avatar {
+    align-self: flex-end;
+    width: 232px;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .about__avatar {
+    align-self: flex-end;
+    width: 464px;
+    margin: 0;
+  }
+}

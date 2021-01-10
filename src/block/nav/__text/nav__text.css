@@ -1,0 +1,11 @@
+@import './_active/nav__text_active.css';
+@import './_active-black/nav__text_active-black.css';
+
+.nav__text {
+  text-decoration: none;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  color: #fff;
+}

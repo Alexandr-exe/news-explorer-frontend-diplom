@@ -1,0 +1,10 @@
+@import './__wrapper/about__wrapper.css';
+@import './__avatar/about__avatar.css';
+@import './__text-content/about__text-content.css';
+@import './__title/about__title.css';
+@import './__text/about__text.css';
+
+.about {
+  margin: auto;
+  background-color: #fff;
+}

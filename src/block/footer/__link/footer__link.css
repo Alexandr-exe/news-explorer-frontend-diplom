@@ -1,0 +1,16 @@
+
+.footer__link {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 48px;
+  text-decoration: none;
+  color: #1A1B22;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__link {
+    line-height: 24px;
+  }
+}

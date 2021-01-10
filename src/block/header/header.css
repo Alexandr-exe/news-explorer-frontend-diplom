@@ -1,0 +1,19 @@
+
+@import './__item/header__item.css';
+@import './__wrapper/header__wrapper.css';
+@import './__text-log/header__text-log.css';
+@import './__content/header__content.css';
+@import './__title/header__title.css';
+@import './__text/header__text.css';
+@import './__saved/header__saved.css';
+
+.header {
+  margin: auto;
+  color: #fff;
+  position: relative;
+  background-color: black;
+  background-image: url('../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

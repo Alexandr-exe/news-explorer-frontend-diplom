@@ -1,0 +1,25 @@
+.about__wrapper {
+  color: #1A1B22;
+  box-sizing: border-box;
+  padding: 32px 16px 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .about__wrapper {
+    margin: auto;
+    width: 768px;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 40px 40px 61px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .about__wrapper {
+    width: 1440px;
+    padding: 80px 160px;
+  }
+}

@@ -1,0 +1,17 @@
+.result-search__title {
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  width: 224px;
+  font-size: 30px;
+  line-height: 34px;
+  margin: 0;
+}
+
+
+@media screen and (min-width: 768px){
+  .result-search__title{
+    width: 100%;
+    margin: 0;
+  }
+}

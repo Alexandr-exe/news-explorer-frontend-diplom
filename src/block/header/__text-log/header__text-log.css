@@ -1,0 +1,18 @@
+@import './_black/header__text-log_black.css';
+@import './_white/header__text-log_white.css';
+
+.header__text-log {
+  text-decoration: none;
+  z-index: 1;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .header__text-log {
+    font-size: 20px;
+  }
+}

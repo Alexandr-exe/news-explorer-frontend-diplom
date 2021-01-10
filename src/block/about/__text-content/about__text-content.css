@@ -1,0 +1,16 @@
+.about__text-content {
+  width: 288px;
+}
+
+@media screen and (min-width: 768px) {
+  .about__text-content {
+    width: 424px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .about__text-content {
+    align-self: flex-start;
+    width: 600px;
+    margin-top: 50px;
+  }
+}

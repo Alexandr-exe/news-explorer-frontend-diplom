@@ -3,6 +3,7 @@
 @import './vendor/normalize.css';
 @import './block/header/header.css';
 @import './block/nav/nav.css';
+@import './block/saved/saved.css';
 @import './block/button/button.css';
 @import './block/search/search.css';
 @import './block/main/main.css';

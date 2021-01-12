@@ -1,6 +1,7 @@
 @import './__wrapper/main__wrapper.css';
 @import './__articles/main__articles.css';
 @import './__text/main__text.css';
+@import './__title/main__title.css';
 
 .main{
   margin: auto;

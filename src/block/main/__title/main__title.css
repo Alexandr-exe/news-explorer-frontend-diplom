@@ -1,0 +1,14 @@
+.main__title {
+  font-family: "Robotoslab";
+  font-size: 30px;
+  line-height: 34px;
+  letter-spacing: 0px;
+  text-align: left;
+  max-width: 288px;
+}
+
+@media screen and (min-width:768px) {
+  .main__title{
+    max-width: 336px;
+  }
+}

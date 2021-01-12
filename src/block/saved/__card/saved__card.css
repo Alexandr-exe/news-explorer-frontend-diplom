@@ -1,4 +1,6 @@
 .saved__card {
+  font-family: "Roboto";
+  font-weight: 400;
   display: grid;
   column-gap: 8px;
   row-gap: 10px;

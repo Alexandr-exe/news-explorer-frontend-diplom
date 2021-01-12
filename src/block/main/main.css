@@ -1,6 +1,7 @@
 @import './__wrapper/main__wrapper.css';
+@import './__articles/main__articles.css';
+@import './__text/main__text.css';
 
 .main{
   margin: auto;
-  background-color: #F5F6F7;
 }

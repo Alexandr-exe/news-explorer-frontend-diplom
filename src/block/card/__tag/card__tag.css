@@ -1,0 +1,10 @@
+.card__tag{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 8px;
+  z-index: 0;
+}

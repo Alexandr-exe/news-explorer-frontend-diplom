@@ -1,3 +1,5 @@
+@import './__wrapper/main__wrapper.css';
+
 .main{
   margin: auto;
   background-color: #F5F6F7;

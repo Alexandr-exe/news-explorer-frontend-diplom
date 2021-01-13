@@ -1,5 +1,6 @@
 @import './__header/card__header.css';
 @import './__img/card__img.css';
+@import './__interactive/card__interactive.css';
 @import './__bookmark/card__bookmark.css';
 @import './__delete/card__delete.css';
 @import './__tag/card__tag.css';

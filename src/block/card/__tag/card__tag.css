@@ -1,10 +1,7 @@
 .card__tag {
-  position: absolute;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  top: 16px;
-  left: 16px;
   border-radius: 8px;
   background-color: #fff;
   box-sizing: border-box;

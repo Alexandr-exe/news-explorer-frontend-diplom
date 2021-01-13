@@ -1,11 +1,13 @@
 
 @import './__item/header__item.css';
+
 @import './__wrapper/header__wrapper.css';
 @import './__text-log/header__text-log.css';
 @import './__content/header__content.css';
 @import './__title/header__title.css';
 @import './__text/header__text.css';
 @import './__saved/header__saved.css';
+@import './__index/header__index.css';
 
 .header {
   margin: auto;

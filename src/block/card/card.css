@@ -9,6 +9,7 @@
 @import './__text/card__text.css';
 @import './__sourse/card__sourse.css';
 @import './__img/card__img.css';
+@import './__icon/card__icon.css';
 
 .card{
   border-radius: 16px;

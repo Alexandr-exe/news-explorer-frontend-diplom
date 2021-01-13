@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+  <link rel="icon" href="<%=require('./images/favicon.png')%>">
 </head>
 
 <body>
@@ -61,7 +62,8 @@
           <figure class="card__header">
             <img class="card__img" src="<%=require('./images/image_08-min.jpg')%>" alt="фото статьи">
             <span class="card__delete">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="card__icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z"
                   fill="#B6BCBF" />
@@ -91,22 +93,21 @@
           </figure>
           <a href="#2" class="card__content">
             <p class="card__date">2 августа, 2019</p>
-            <p class="card__title">Национальное достояние – парки</p>
-            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-              система национальных парков...</p>
+            <p class="card__title">Лесные огоньки: история одной фотографии</p>
+            <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад&#8230;</p>
             <p class="card__sourse">Лента.ру</p>
           </a>
         </div>
         <div class="card">
           <figure class="card__header">
             <img class="card__img" src="<%=require('./images/image_05.jpg')%>" alt="фото статьи">
-            <span class="card__delete">
+            <button class="card__delete">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z"
                   fill="#B6BCBF" />
               </svg>
-            </span>
+            </button>
             <span class="card__tag">Тайга</span>
           </figure>
           <a href="#3" class="card__content">

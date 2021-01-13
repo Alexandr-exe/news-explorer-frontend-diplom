@@ -9,6 +9,7 @@
   box-sizing: border-box;
   padding: 8px;
   cursor: pointer;
+  z-index: 2;
 }
 
 @media screen and (min-width:1440px) {

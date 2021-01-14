@@ -10,31 +10,34 @@
 </head>
 
 <body>
-  <header class="header header__index">
+  <header class="header">
     <div class="header__wrapper">
-      <div class="header__item">
-        <a class="header__text-log header__text-log_white" href="#">NewExplorer</a>
-        <nav class="nav">
-          <div class="nav__desktop-menu">
-            <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-            <button class="button button__desktop">Авторизироваться</button>
-          </div>
-          <label class="nav__label">
-            <input class="nav__checkbox" type="checkbox">
-            <img class="nav__img" src="<%=require('./images/menu.svg')%>" alt="меню">
-            <span class="nav__popup">
-              <span class="nav__mobil-menu">
-                <img class="nav__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-                <span class="nav__content">
-                  <a class="nav__text" href="./index.html">Главная</a>
-                  <a class="nav__text" href="#">Сохранённые статьи</a>
+      <div class="header__index">
+        <div class="header__item">
+          <a class="header__text-log header__text-log_white" href="#">NewExplorer</a>
+          <nav class="nav">
+            <div class="nav__desktop-menu">
+              <a class="nav__text nav__text_active" href="./index.html">Главная</a>
+              <button class="button button__desktop">Авторизироваться</button>
+            </div>
+            <label class="nav__label">
+              <input class="nav__checkbox" type="checkbox">
+              <img class="nav__img" src="<%=require('./images/menu.svg')%>" alt="меню">
+              <span class="nav__popup">
+                <span class="nav__mobil-menu">
+                  <img class="nav__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+                  <span class="nav__content">
+                    <a class="nav__text" href="./index.html">Главная</a>
+                    <a class="nav__text" href="#">Сохранённые статьи</a>
+                  </span>
+                  <span class="button button__auth">Авторизироваться</span>
                 </span>
-                <span class="button button__auth">Авторизироваться</span>
               </span>
-            </span>
-          </label>
-        </nav>
+            </label>
+          </nav>
+        </div>
       </div>
+
       <div class="header__content">
         <h1 class="header__title">Что творится в мире?</h1>
         <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном

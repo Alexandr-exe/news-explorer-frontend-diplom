@@ -5,6 +5,8 @@
 @import './__text/about__text.css';
 
 .about {
+  font-family: "Robotoslab";
+  font-weight: 400;
   margin: auto;
   background-color: #fff;
 }

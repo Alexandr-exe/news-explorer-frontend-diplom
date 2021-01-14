@@ -7,6 +7,9 @@
 @import './__copyright/footer__copyright.css';
 
 .footer {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
   background-color: #fff;
 }
 

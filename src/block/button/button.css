@@ -9,6 +9,8 @@
 @import './__disabled/button__disabled.css';
 
 .button {
+  font-family: "Roboto";
+  font-weight: 500;
   cursor: pointer;
   opacity: 1;
   transition: ease-in  .1s;

@@ -11,43 +11,41 @@
 
 <body>
   <header class="header">
-    <div class="header__wrapper">
-      <div class="header__index">
-        <div class="header__item">
-          <a class="header__text-log header__text-log_white" href="#">NewExplorer</a>
-          <nav class="nav">
-            <div class="nav__desktop-menu">
-              <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-              <button class="button button__desktop">Авторизироваться</button>
-            </div>
-            <label class="nav__label">
-              <input class="nav__checkbox" type="checkbox">
-              <img class="nav__img" src="<%=require('./images/menu.svg')%>" alt="меню">
-              <span class="nav__popup">
-                <span class="nav__mobil-menu">
-                  <img class="nav__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-                  <span class="nav__content">
-                    <a class="nav__text" href="./index.html">Главная</a>
-                    <a class="nav__text" href="#">Сохранённые статьи</a>
-                  </span>
-                  <span class="button button__auth">Авторизироваться</span>
+    <div class="header__wrapper header__wrapper_line-white">
+      <div class="header__item">
+        <a class="header__text-log header__text-log_white" href="#">NewExplorer</a>
+        <nav class="nav">
+          <div class="nav__desktop-menu nav__desktop-menu_index">
+            <a class="nav__text nav__text_active" href="./index.html">Главная</a>
+            <button class="button button__desktop">Авторизироваться</button>
+          </div>
+          <label class="nav__label">
+            <input class="nav__checkbox" type="checkbox">
+            <img class="nav__img" src="<%=require('./images/menu.svg')%>" alt="меню">
+            <span class="nav__popup">
+              <span class="nav__mobil-menu">
+                <img class="nav__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+                <span class="nav__content">
+                  <a class="nav__text" href="./index.html">Главная</a>
+                  <a class="nav__text" href="#">Сохранённые статьи</a>
                 </span>
+                <span class="button button__auth">Авторизироваться</span>
               </span>
-            </label>
-          </nav>
-        </div>
-      </div>
-
-      <div class="header__content">
-        <h1 class="header__title">Что творится в мире?</h1>
-        <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
-          кабинете.</p>
-      </div>
-      <div class="search">
-        <input placeholder="Политика" class="search__input" type="text" />
-        <button type="submit" class="button button__search">Искать</button>
+            </span>
+          </label>
+        </nav>
       </div>
     </div>
+    <div class="header__content">
+      <h1 class="header__title">Что творится в мире?</h1>
+      <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
+        кабинете.</p>
+    </div>
+    <div class="search">
+      <input placeholder="Политика" class="search__input" type="text" />
+      <button type="submit" class="button button__search">Искать</button>
+    </div>
+
   </header>
   <main class="main">
     <article class="result-search">
@@ -56,10 +54,10 @@
         <div class="result-search__card">
           <div class="card">
             <div class="card__header">
-              <img class="card__img" src="<%=require('./images/image_08-min.jpg')%>" alt="фото статьи">
+              <img class="card__img" src="<%=require('./images/image_08.jpg')%>" alt="фото статьи">
               <div class="card__interactive">
                 <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
-                <button class="button button__bookmark"></button>
+                <button class="button button__bookmark button__bookmark_add"></button>
               </div>
             </div>
             <a href="#" class="card__content">
@@ -73,7 +71,7 @@
 
           <div class="card">
             <div class="card__header">
-              <img class="card__img" src="<%=require('./images/image_06-min.jpg')%>" alt="фото статьи">
+              <img class="card__img" src="<%=require('./images/image_06.jpg')%>" alt="фото статьи">
               <div class="card__interactive">
                 <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
                 <button class="button button__bookmark"></button>
@@ -90,7 +88,7 @@
 
           <div class="card">
             <figure class="card__header">
-              <img class="card__img" src="<%=require('./images/image_07-min.jpg')%>" alt="фото статьи">
+              <img class="card__img" src="<%=require('./images/image_07.jpg')%>" alt="фото статьи">
               <div class="card__interactive">
                 <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
                 <button class="button button__bookmark"></button>
@@ -111,7 +109,7 @@
     </article>
     <article class="about">
       <div class="about__wrapper">
-        <img class="about__avatar" src="<%=require('./images/image-03-min.jpg')%>" alt="аватар">
+        <img class="about__avatar" src="<%=require('./images/image-03.jpg')%>" alt="аватар">
         <div class="about__text-content">
           <h2 class="about__title">Об авторе</h2>
           <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы

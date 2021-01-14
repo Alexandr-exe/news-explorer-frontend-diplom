@@ -1,0 +1,9 @@
+.nav__desktop-menu_saved {
+  width: 375px;
+}
+
+@media screen and (min-width: 1440px) {
+  .nav__desktop-menu_saved {
+    width: 425px;
+  }
+}

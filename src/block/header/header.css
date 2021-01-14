@@ -6,8 +6,6 @@
 @import './__content/header__content.css';
 @import './__title/header__title.css';
 @import './__text/header__text.css';
-@import './__saved/header__saved.css';
-@import './__index/header__index.css';
 
 .header {
   margin: auto;

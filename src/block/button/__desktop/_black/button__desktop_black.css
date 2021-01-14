@@ -1,4 +1,7 @@
 .button__desktop.button__desktop_black{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: black;
   border: 1px solid #D1D2D6;
 }

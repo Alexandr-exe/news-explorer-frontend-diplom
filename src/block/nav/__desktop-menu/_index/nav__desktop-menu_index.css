@@ -1,0 +1,9 @@
+.nav__desktop-menu_index {
+  width: 265px;
+}
+
+@media screen and (min-width: 1440px) {
+  .nav__desktop-menu_index {
+    width: 280px;
+  }
+}

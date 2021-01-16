@@ -1,5 +1,6 @@
 @import './_is-opened/popup_is-opened.css';
 @import './__container/popup__container.css';
+@import './__success/popup__success.css';
 @import './__close/popup__close.css';
 @import './__form/popup__form.css';
 @import './__label/popup__label.css';
@@ -8,6 +9,7 @@
 @import './__error/popup__error.css';
 @import './__footer/popup__footer.css';
 @import './__link/popup__link.css';
+
 .popup {
   position: fixed;
   top: 0;

@@ -1,0 +1,6 @@
+.popup__success {
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 43px 79px 50px 36px;
+  background: #fff;
+}

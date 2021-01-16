@@ -1,5 +1,6 @@
 @import './_visible/result-search_visible.css';
-@import './__wrapper/result-search__wrapper.css';
+@import './__fail/result-search__fail.css';
+@import './__text/result-search__text.css';
 @import './__positive/result-search__positive.css';
 @import './__title/result-search__title.css';
 @import './__card/result-search__card.css';

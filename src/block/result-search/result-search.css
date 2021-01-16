@@ -1,7 +1,10 @@
+@import './_visible/result-search_visible.css';
 @import './__wrapper/result-search__wrapper.css';
+@import './__positive/result-search__positive.css';
 @import './__title/result-search__title.css';
 @import './__card/result-search__card.css';
 .result-search {
+  display: none;
   background-color: #F5F6F7;
   width: 100%;
 }

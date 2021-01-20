@@ -4,6 +4,7 @@
 @import './__positive/result-search__positive.css';
 @import './__title/result-search__title.css';
 @import './__card/result-search__card.css';
+
 .result-search {
   display: none;
   background-color: #F5F6F7;

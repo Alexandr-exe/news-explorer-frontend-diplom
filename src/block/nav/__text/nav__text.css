@@ -1,0 +1,12 @@
+@import './_active/nav__text_active.css';
+@import './_active-black/nav__text_active-black.css';
+.nav__text {
+  text-decoration: none;
+  color: #fff;
+  opacity: 1;
+  transition: ease-in .1s;
+}
+
+.nav__text:hover{
+  opacity: .8;
+}

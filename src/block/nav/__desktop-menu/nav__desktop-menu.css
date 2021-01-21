@@ -1,0 +1,28 @@
+@import './_saved/nav__desktop-menu_saved.css';
+@import './_index/nav__desktop-menu_index.css';
+
+.nav__desktop-menu {
+  display: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav__desktop-menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .nav__desktop-menu {
+    position: relative;
+    display: flex;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

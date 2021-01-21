@@ -1,0 +1,20 @@
+@import './__header/card__header.css';
+@import './__img/card__img.css';
+@import './__interactive/card__interactive.css';
+@import './__bookmark/card__bookmark.css';
+@import './__delete/card__delete.css';
+@import './__tag/card__tag.css';
+@import './__date/card__date.css';
+@import './__content/card__content.css';
+@import './__title/card__title.css';
+@import './__text/card__text.css';
+@import './__sourse/card__sourse.css';
+@import './__img/card__img.css';
+@import './__icon/card__icon.css';
+
+.card{
+  border-radius: 16px;
+  background-color: #fff;
+  margin: 0 2px;
+  text-decoration: none;  
+}

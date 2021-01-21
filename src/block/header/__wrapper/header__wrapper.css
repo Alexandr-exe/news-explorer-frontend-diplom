@@ -1,0 +1,8 @@
+@import './_line-grey/header__wrapper_line-grey.css';
+@import './_line-white/header__wrapper_line-white.css';
+
+.header__wrapper {
+  width: 100%;
+  max-height: 536px;
+  margin: auto;
+}

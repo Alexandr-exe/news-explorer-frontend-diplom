@@ -1,0 +1,8 @@
+.nav__content{
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 206px;
+ justify-content: space-around;
+}

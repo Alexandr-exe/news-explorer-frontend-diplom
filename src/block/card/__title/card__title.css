@@ -1,0 +1,12 @@
+.card__title {
+  font-family: "Robotoslab";
+  font-size: 22px;
+  line-height: 26px;
+  color: #1A1B22;
+  margin: 10px 0;
+}
+
+/* @media screen and (min-width: 768px) {
+  .card__title {
+  }
+} */

@@ -1,0 +1,11 @@
+@import './_visible/result-search__fail_visible.css';
+
+.result-search__fail{
+  display: none;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 0;
+}

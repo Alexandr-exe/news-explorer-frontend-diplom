@@ -1,0 +1,15 @@
+@import './__wrapper/footer__wrapper.css';
+@import './__nav/footer__nav.css';
+@import './__list/footer__list.css';
+@import './__item/footer__item.css';
+@import './__link/footer__link.css';
+@import './__social/footer__social.css';
+@import './__copyright/footer__copyright.css';
+
+.footer {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  background-color: #fff;
+}
+

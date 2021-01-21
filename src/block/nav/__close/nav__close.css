@@ -1,0 +1,5 @@
+.nav__close{
+  justify-self: flex-start;
+  align-self: flex-end;
+  padding-bottom: 16px;
+}

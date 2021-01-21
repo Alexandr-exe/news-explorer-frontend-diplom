@@ -1,0 +1,18 @@
+.main__articles {
+  font-family: "Roboto";
+  font-size: 12px;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+@media screen and (min-width:768px) {
+  .main__articles {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width:1440px) {
+  .main__articles {
+    font-size: 18px;
+  }
+}

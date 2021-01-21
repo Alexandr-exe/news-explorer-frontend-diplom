@@ -1,0 +1,14 @@
+.nav__mobil-menu {
+  box-sizing: border-box;
+  padding: 16px 16px 24px;
+  position: absolute;
+  left: 0;
+  height: 286px;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  background: #000;
+  flex-direction: column;
+  margin: auto;
+}
+

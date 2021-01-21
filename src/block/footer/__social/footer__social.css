@@ -1,0 +1,15 @@
+.footer__social {
+  list-style: none;
+  padding: 0;
+  width: 72px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__social {
+    margin: 0;
+    align-self: center;
+    
+  }
+}

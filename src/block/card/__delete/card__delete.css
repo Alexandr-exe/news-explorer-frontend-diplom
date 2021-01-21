@@ -1,0 +1,34 @@
+.card__delete {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media screen and (min-width:1440px) {
+  .card__delete:hover::before {
+    content: 'Убрать из сохранённых';
+    position: absolute;
+    color: #000000;
+    top: 0px;
+    right: 56px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    width: 159px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
+    border-radius: 10px;
+    background-color: white;
+  }
+}

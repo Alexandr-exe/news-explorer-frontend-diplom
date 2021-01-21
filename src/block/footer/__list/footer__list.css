@@ -1,0 +1,14 @@
+.footer__list {
+line-height: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px){
+  .footer__list {
+    display: flex;
+    width: 264px;
+    justify-content: space-between;
+    margin: 0;
+  }
+}

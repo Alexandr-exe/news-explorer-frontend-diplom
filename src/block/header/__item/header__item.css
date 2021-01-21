@@ -1,0 +1,21 @@
+
+.header__item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 16px;
+  max-width: 1235px;
+  max-height: 80px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:rgba(196, 196, 196, 0.01);
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2); 
+}
+
+@media screen and (min-width: 768px){
+  .header__item{
+    height:59px;
+    padding: 12px 40px;
+  }
+}

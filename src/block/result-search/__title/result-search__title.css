@@ -1,0 +1,19 @@
+@import './_fail/result-search__title_fail.css';
+
+.result-search__title {
+  font-family: "Robotoslab", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  max-width: 224px;
+  font-size: 30px;
+  line-height: 34px;
+  margin: 0;
+}
+
+
+@media screen and (min-width: 768px){
+  .result-search__title{
+    max-width: 100%;
+    margin: 0;
+  }
+}

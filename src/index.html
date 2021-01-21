@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сервис по поиску новостей" />
+  <meta name="author" content="Alexandr Tatarnikov" />
+  
+  <title>NewExplorer</title>
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" type="text/css">
+  <link rel="icon" href="<%=require('./images/favicon.png')%>">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__wrapper header__wrapper_line-white">
+      <div class="header__item">
+        <a class="header__text-log header__text-log_white" href="#">NewExplorer</a>
+        <nav class="nav">
+          <div class="nav__desktop-menu nav__desktop-menu_index">
+            <a class="nav__text nav__text_active" href="./index.html">Главная</a>
+            <button class="button button__desktop">Авторизироваться</button>
+          </div>
+          <label class="nav__label">
+            <input class="nav__checkbox" type="checkbox">
+            <img class="nav__img" src="<%=require('./images/menu.svg')%>" alt="меню">
+            <span class="nav__popup">
+              <span class="nav__mobil-menu">
+                <img class="nav__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+                <span class="nav__content">
+                  <a class="nav__text" href="./index.html">Главная</a>
+                  <a class="nav__text" href="#">Сохранённые статьи</a>
+                </span>
+                <span class="button button__auth">Авторизироваться</span>
+              </span>
+            </span>
+          </label>
+        </nav>
+      </div>
+    </div>
+    <div class="header__content">
+      <h1 class="header__title">Что творится в мире?</h1>
+      <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
+        кабинете.</p>
+    </div>
+    <div class="search">
+      <input placeholder="Политика" class="search__input" required type="text" />
+      <button type="submit" class="button button__search">Искать</button>
+    </div>
+
+  </header>
+  <main class="main">
+    <article class="result-search result-search_visible">
+      <div class="result-search__fail result-search__fail_visible">
+        <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="43" cy="43" r="36.5" stroke="#D1D2D6" />
+          <path d="M69 69L88.5 88.5" stroke="#D1D2D6" />
+          <path
+            d="M58.3283 55.959C54.6606 51.6979 49.2275 48.9998 43.1642 48.9998C37.1009 48.9998 31.6678 51.6979 28 55.959"
+            stroke="#D1D2D6" />
+          <circle cx="55.5" cy="33.5" r="1.5" fill="#D1D2D6" />
+          <circle cx="30.5" cy="33.5" r="1.5" fill="#D1D2D6" />
+        </svg>
+        <h2 class="result-search__title result-search__title_fail">Ничего не найдено</h2>
+        <p class="result-search__text">К сожалению по вашему запросу
+        ничего не найдено.</p>
+      </div>
+      <div class="preloader preloader_visible">
+        <i class="preloader__circle"></i>
+        <p class="preloader__title">Идет поиск новостей...</p>
+      </div>
+      <div class="result-search__positive result-search__positive_visible">
+        <h2 class="result-search__title">Результаты поиска</h2>
+        <div class="result-search__card">
+          <div class="card">
+            <div class="card__header">
+              <img class="card__img" src="<%=require('./images/image_08.jpg')%>" alt="фото статьи">
+              <div class="card__interactive">
+                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
+                <button class="button button__bookmark button__bookmark_add"></button>
+              </div>
+            </div>
+            <a href="#" class="card__content">
+              <p class="card__date">2 августа, 2019</p>
+              <p class="card__title">Национальное достояние – парки</p>
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                складываться
+                система национальных парков...</p>
+              <p class="card__sourse">Лента.ру</p>
+            </a>
+          </div>
+          <div class="card">
+            <div class="card__header">
+              <img class="card__img" src="<%=require('./images/image_06.jpg')%>" alt="фото статьи">
+              <div class="card__interactive">
+                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
+                <button class="button button__bookmark"></button>
+              </div>
+            </div>
+            <a href="#" class="card__content">
+              <p class="card__date">2 августа, 2019</p>
+              <p class="card__title">Национальное достояние – парки</p>
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                складываться
+                система национальных парков...</p>
+              <p class="card__sourse">Медуза</p>
+            </a>
+          </div>
+          <div class="card">
+            <figure class="card__header">
+              <img class="card__img" src="<%=require('./images/image_07.jpg')%>" alt="фото статьи">
+              <div class="card__interactive">
+                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
+                <button class="button button__bookmark"></button>
+              </div>
+            </figure>
+            <a href="#" class="card__content">
+              <p class="card__date">2 августа, 2019</p>
+              <p class="card__title">Национальное достояние – парки</p>
+              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                складываться
+                система национальных парков...</p>
+              <p class="card__sourse">риа</p>
+            </a>
+          </div>
+        </div>
+        <button class="button button__more">Показать еще</button>
+      </div>
+    </article>
+    <article class="about">
+      <div class="about__wrapper">
+        <img class="about__avatar" src="<%=require('./images/image-03.jpg')%>" alt="аватар">
+        <div class="about__text-content">
+          <h2 class="about__title">Об авторе</h2>
+          <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы
+            занимаетесь, какими технологиями разработки владеете.</p>
+          <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем
+            можете помочь потенциальным заказчикам.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="popup">
+    <div class="popup__container">
+      <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+      <form class="popup__form" name="login">
+        <h2 class="popup__title">Вход</h2>
+        <label class="popup__label" for="email-login">Email
+          <input id="email-login" placeholder="Введите почту" required class="popup__input" type="text">
+          <span class="popup__error"></span>
+        </label>
+        <label class="popup__label" for="password-login">Пароль
+          <input id="password-login" placeholder="Введите пароль" required class="popup__input" type="password">
+          <span class="popup__error"></span>
+        </label>
+        <button class="button button__disabled" type="submit" disabled>Войти</button>
+        <p class="popup__footer">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup__container">
+      <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+      <form class="popup__form" name="auth">
+        <h2 class="popup__title">Регистрация</h2>
+        <label class="popup__label" for="email-auth">Email
+          <input id="email-auth" placeholder="Введите почту" required class="popup__input" type="email">
+          <span class="popup__error"></span>
+        </label>
+        <label class="popup__label" for="password-auth">Пароль
+          <input id="password-auth" placeholder="Введите пароль" required class="popup__input" type="password">
+          <span class="popup__error"></span>
+        </label>
+        <span class="popup__error popup__error_user"></span>
+        <button class="button button__disabled" type="submit" disabled>Зарегистрироваться</button>
+
+        <p class="popup__footer">или <a href="#" class="popup__link">Войти</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup__container">
+      <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
+      <div class="popup__success">
+        <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
+        <a href="#" class="popup__link">Войти</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer__wrapper">
+      <nav class="footer__nav">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a class="footer__link footer__link_text" href="./index.html">Главная</a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link" target="_blank" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+          </li>
+        </ul>
+        <ul class="footer__social">
+          <li class="footer__item">
+            <a class="footer__link footer__link_git" target="_blank" href="#">
+              <img src="<%=require('./images/git.svg')%>" alt="гит">
+            </a>
+          </li>
+          <li class="footer__item ">
+            <a class="footer__link footer__link_fb" target="_blank" href="#">
+              <img src="<%=require('./images/fb.svg')%>" alt="фейсбук">
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="footer__copyright">© 2020 Supersite, Powered by News API</p>
+
+    </div>
+  </footer>
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
+
+</html>

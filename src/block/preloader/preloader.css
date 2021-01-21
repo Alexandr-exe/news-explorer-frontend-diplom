@@ -1,0 +1,10 @@
+@import './__title/preloader__title.css';
+@import './__circle/preloader__circle.css';
+@import './_visible/preloader_visible.css';
+.preloader {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 0;
+}

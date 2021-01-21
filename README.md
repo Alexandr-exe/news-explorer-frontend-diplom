@@ -28,6 +28,7 @@ Tatarnikov Alexandr
 - postcss-loader,
 - autoprefixer,
 - cssnano.
+
 — для работы вебпака:
 - gh-pages,
 - webpack-md5-hash,

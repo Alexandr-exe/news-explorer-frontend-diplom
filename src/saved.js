@@ -1,1 +1,1 @@
-import './style/saved.css'
+import './styles/saved.css'

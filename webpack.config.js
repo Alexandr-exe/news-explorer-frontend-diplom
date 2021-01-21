@@ -27,7 +27,12 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+				use: [
+					(isDev ? {loader:'style-loader'} : { loader:MiniCssExtractPlugin.loader,
+						options: {
+						publicPath:'../'
+						}
+				}),
 				{
 					loader: 'css-loader',
 					options: {
@@ -73,7 +78,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|ttf|woff|woff2)$/,
-				loader: 'file-loader?name=./vendor/font/[name].[ext]'
+				loader: 'file-loader?name=./vendor/fonts/[name].[ext]'
 			}
 		]
 	},

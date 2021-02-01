@@ -12,7 +12,7 @@
   <link rel="icon" href="<%=require('./images/favicon.png')%>">
 </head>
 
-<body>
+<body id="body">
   <header class="header">
     <div class="header__wrapper header__wrapper_line-white">
       <div class="header__item">
@@ -20,7 +20,7 @@
         <nav class="nav">
           <div class="nav__desktop-menu nav__desktop-menu_index">
             <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-            <button class="button button__desktop">Авторизироваться</button>
+            <button class="button button__desktop" data-modal="auth">Авторизироваться</button>
           </div>
           <label class="nav__label">
             <input class="nav__checkbox" type="checkbox">
@@ -32,7 +32,7 @@
                   <a class="nav__text" href="./index.html">Главная</a>
                   <a class="nav__text" href="#">Сохранённые статьи</a>
                 </span>
-                <span class="button button__auth">Авторизироваться</span>
+                <span class="button button__auth" data-modal="auth">Авторизироваться</span>
               </span>
             </span>
           </label>
@@ -141,7 +141,7 @@
       </div>
     </article>
   </main>
-  <div class="popup">
+  <div class="popup" data-modal="login">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
       <form class="popup__form" name="login">
@@ -159,7 +159,7 @@
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup" data-modal="auth">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
       <form class="popup__form" name="auth">

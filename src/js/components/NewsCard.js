@@ -19,7 +19,7 @@ class NewsCard {
       <p class="card__date">${article.date}</p>
       <p class="card__title">${article.title}</p>
       <p class="card__text">${article.text}</p>
-       <p class="card__sourse">${article.sourse}</p>
+      <p class="card__sourse">${article.sourse}</p>
       </a>
     </div>`
 

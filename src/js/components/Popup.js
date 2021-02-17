@@ -11,11 +11,21 @@ class Popup {
   }
 
   open(event) {
-    
+    let opened = this
+      .container.querySelector('.popup_is-opened')
     const name = event.target.getAttribute('data-modal')
-    this
-      .container.querySelector(`.popup[data-modal=${name}]`)
-      .classList.toggle('popup_is-opened')
+    if (opened !== null) {
+      opened.classList.remove('popup_is-opened')
+      this
+        .container.querySelector(`.popup[data-modal=${name}]`)
+        .classList.toggle('popup_is-opened')
+    }else{
+      this.clearContent()
+      this
+        .container.querySelector(`.popup[data-modal=${name}]`)
+        .classList.toggle('popup_is-opened')
+    }
+
   }
 
   clearContent() {

@@ -9,12 +9,6 @@ const popup = new Popup(body, crosses)
 
 buttons.forEach(button => {
   button.addEventListener('click', (event) => {
-    let opened = document.querySelector('.popup_is-opened')
-    if (opened !== null) {
-      opened.classList.remove('popup_is-opened')
-      popup.open(event)
-    }else{
-      popup.open(event) 
-    }  
+    popup.open(event)
   })
 })

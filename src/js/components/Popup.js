@@ -11,10 +11,11 @@ class Popup {
   }
 
   open(event) {
+    
     const name = event.target.getAttribute('data-modal')
     this
       .container.querySelector(`.popup[data-modal=${name}]`)
-      .classList.add('popup_is-opened')
+      .classList.toggle('popup_is-opened')
   }
 
   clearContent() {

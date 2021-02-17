@@ -1,6 +1,7 @@
 .popup__close {
   margin: 0 -30px 6px;
   color: #fff;
+  z-index: 1;
   width: 24px;
   height: 24px;
   align-self: flex-end;

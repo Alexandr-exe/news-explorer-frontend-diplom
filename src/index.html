@@ -20,7 +20,7 @@
         <nav class="nav">
           <div class="nav__desktop-menu nav__desktop-menu_index">
             <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-            <button class="button button__desktop" data-modal="auth">Авторизироваться</button>
+            <button class="button  button__desktop button_popup " data-modal="auth">Авторизироваться</button>
           </div>
           <label class="nav__label">
             <input class="nav__checkbox" type="checkbox">
@@ -32,7 +32,7 @@
                   <a class="nav__text" href="./index.html">Главная</a>
                   <a class="nav__text" href="#">Сохранённые статьи</a>
                 </span>
-                <span class="button button__auth" data-modal="auth">Авторизироваться</span>
+                <button class="button  button__auth button_popup" data-modal="auth">Авторизироваться</button>
               </span>
             </span>
           </label>
@@ -44,10 +44,10 @@
       <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
         кабинете.</p>
     </div>
-    <div class="search">
+    <form class="search" name="search">
       <input placeholder="Политика" class="search__input" required type="text" />
       <button type="submit" class="button button__search">Искать</button>
-    </div>
+    </form>
 
   </header>
   <main class="main">
@@ -155,7 +155,7 @@
           <span class="popup__error"></span>
         </label>
         <button class="button button__disabled" type="submit" disabled>Войти</button>
-        <p class="popup__footer">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+        <p class="popup__footer">или <button  class="button button_popup popup__link" data-modal="auth">Зарегистрироваться</button></p>
       </form>
     </div>
   </div>
@@ -174,17 +174,16 @@
         </label>
         <span class="popup__error popup__error_user"></span>
         <button class="button button__disabled" type="submit" disabled>Зарегистрироваться</button>
-
-        <p class="popup__footer">или <a href="#" class="popup__link">Войти</a></p>
+        <p class="popup__footer">или <button class="button button_popup popup__link" data-modal="login" >Войти</button></p>
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup" data-modal="susses">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
       <div class="popup__success">
         <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
-        <a href="#" class="popup__link">Войти</a>
+        <button class="button button_popup popup__link" data-modal="login">Войти</button>
       </div>
     </div>
   </div>

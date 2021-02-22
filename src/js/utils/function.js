@@ -1,4 +1,4 @@
-export default function dataFormat(wrongDate) {
+ function dataFormat(wrongDate) {
   const year = wrongDate.split('-')[0];
   const month = wrongDate.split('-')[1];
   const day = wrongDate.split('-')[2];
@@ -22,3 +22,5 @@ export default function dataFormat(wrongDate) {
   const monthWord = monthObj[`${month}`];
   return (`${day} ${monthWord}, ${year}`);
 }
+
+export default dataFormat

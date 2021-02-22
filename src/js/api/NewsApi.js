@@ -3,8 +3,7 @@ class NewsApi {
     this.server = server;
   }
 
-  getNews({ keyword }) {
-    console.log(keyword)
+  getApi(keyword) {
     const today = new Date();
     const weekInMS = 604800000;
     const lastweek = new Date(today.getTime() - weekInMS);
@@ -15,11 +14,12 @@ class NewsApi {
     ).then((res) => this._returnJson(res));
   }
 
-  _returnJson(res) {
+  _returnJson(res)  {
     if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Ошибка: ${res.status}`);
   };
 }
+
 export default NewsApi

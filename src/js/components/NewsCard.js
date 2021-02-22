@@ -1,25 +1,26 @@
-import dataFormat from '../utils/function'
+import { dataFormat } from '../utils/function'
 
 class NewsCard {
   constructor() {
 
-    this.create = this.create.bind(this)
+    this.createCard = this.createCard.bind(this)
   }
-  create(article) {
+
+  createCard(article) {
     const markCard = `
     <div class="card">
       <figure class="card__header">
-        <img class="card__img" src="<%=require('${article.img}')%>" alt="фото статьи">
+        <img class="card__img" src="${article.urlToImage}" alt="фото статьи">
         <div class="card__interactive">
         <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
         <button class="button button__bookmark"></button>
         </div>
       </figure>
-      <a href="#" class="card__content">
-      <p class="card__date">${article.date}</p>
+      <a href="${article.url}" class="card__content">
+      <p class="card__date">${article.publishedAt}</p>
       <p class="card__title">${article.title}</p>
-      <p class="card__text">${article.text}</p>
-      <p class="card__sourse">${article.sourse}</p>
+      <p class="card__text">${article.description}</p>
+      <p class="card__sourse">${article.source.name}</p>
       </a>
     </div>`
 
@@ -28,6 +29,10 @@ class NewsCard {
 
     this.element = fragment.firstElementChild;
     return fragment.firstElementChild;
+  }
+
+  saveCard() {
+
   }
 }
 export default NewsCard

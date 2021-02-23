@@ -11,6 +11,7 @@ const buttons = document.querySelectorAll('.button_popup');
 const crosses = document.querySelectorAll('.popup__close');
 const resultSearch = document.querySelector('.result-search__card');
 const more = document.querySelector('.button__more')
+const preloader = document.querySelector('.preloader')
 
 const searchForm = document.forms.search
 const { search } = searchForm.elements
@@ -18,14 +19,14 @@ const { search } = searchForm.elements
 const popup = new Popup(body, crosses);
 const newsApi = new NewsApi(newsApiServer);
 const newsCard = new NewsCard();
-const newsCardList = new NewsCardList(resultSearch, newsCard.createCard);
+const newsCardList = new NewsCardList(resultSearch, newsCard.createCard, preloader);
 
 
 
-
-searchForm.addEventListener('submit', (event) => {
+function renderSearch(event){
   event.preventDefault()
   newsCardList.clearArticle()
+  newsCardList.renderLoading(true)
   newsApi.getApi(search.value)
     .then(res => {
       if (res.articles.length == 0) {
@@ -37,8 +38,13 @@ searchForm.addEventListener('submit', (event) => {
       }
     }
     )
-})
+    .finally(() => {
+      newsCardList.renderLoading(false)
+    })
+}
 
+
+searchForm.addEventListener('submit', renderSearch)
 more.addEventListener('click', newsCardList.more)
 
 buttons.forEach(button => {

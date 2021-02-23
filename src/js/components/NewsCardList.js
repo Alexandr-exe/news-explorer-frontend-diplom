@@ -1,16 +1,27 @@
 class NewsCardList {
-  constructor(container, createArticle) {
+  constructor(container, createArticle, preloader) {
     this.container = container
     this.createArticle = createArticle
+    this.preloader = preloader
     this.articles = []
 
     this.render = this.render.bind(this)
     this.addArticle = this.addArticle.bind(this)
     this.more = this.more.bind(this)
+    this.renderLoading = this.renderLoading.bind(this)
+    
   }
 
   clearArticle(){
     this.container.innerHTML = ""
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this.preloader.classList.add('preloader_visible')
+    } else {
+      this.preloader.classList.remove('preloader_visible')  
+    }
   }
 
   addArticle(data) {

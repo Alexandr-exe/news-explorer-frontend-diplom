@@ -32,7 +32,7 @@
                   <a class="nav__text" href="./index.html">Главная</a>
                   <a class="nav__text" href="#">Сохранённые статьи</a>
                 </span>
-                <button class="button  button__auth button_popup" data-modal="auth">Авторизироваться</button>
+                <button class="button button__auth button_popup" data-modal="auth">Авторизироваться</button>
               </span>
             </span>
           </label>
@@ -46,8 +46,10 @@
     </div>
     <form class="search" name="search">
       <input placeholder="Политика" id="search" class="search__input" required type="text" />
+      
       <button type="submit" class="button button__search">Искать</button>
-      <span id="error-search" class="popup__error"></span>
+      <span id="error-search" class="popup__error popup__error_search-place"></span>
+      
     </form>
 
   </header>
@@ -97,37 +99,37 @@
       <form class="popup__form" name="login">
         <h2 class="popup__title">Вход</h2>
         <label class="popup__label" for="email-login">Email
-          <input id="email-login" placeholder="Введите почту" required class="popup__input" type="text">
-          <span class="popup__error"></span>
+          <input id="email-login" placeholder="Введите почту" pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)" required class="popup__input" type="email">
+          <span id="error-email-login" class="popup__error"></span>
         </label>
         <label class="popup__label" for="password-login">Пароль
           <input id="password-login" placeholder="Введите пароль" required class="popup__input" type="password">
-          <span class="popup__error"></span>
+          <span id="error-password-login" class="popup__error"></span>
         </label>
-        <button class="button button__disabled" type="submit" disabled>Войти</button>
+        <button class="button button__popup button__disabled" type="submit" disabled>Войти</button>
         <p class="popup__footer">или <button  class="button button_popup popup__link" data-modal="auth">Зарегистрироваться</button></p>
       </form>
     </div>
   </div>
-  <div class="popup" data-modal="auth">
+  <div class="popup" data-modal="auth" >
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-      <form class="popup__form" name="auth">
+      <form class="popup__form" name="auth" novalidate>
         <h2 class="popup__title">Регистрация</h2>
         <label class="popup__label" for="email-auth">Email
-          <input id="email-auth" placeholder="Введите почту" required class="popup__input" type="email">
-          <span class="popup__error"></span>
+          <input  id="email-auth" placeholder="Введите почту" pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)" class="popup__input" type="email"  required>
+          <span id="error-email-auth" class="popup__error"></span>
         </label>
         <label class="popup__label" for="password-auth">Пароль
-          <input id="password-auth" placeholder="Введите пароль" required class="popup__input" type="password">
-          <span class="popup__error"></span>
+          <input id="password-auth" placeholder="Введите пароль" class="popup__input" type="password" required>
+          <span id="error-password-auth" class="popup__error"></span>
         </label>
         <label class="popup__label" for="name">Имя
-          <input id="name" placeholder="Введите своё имя" required class="popup__input" type="text">
-          <span class="popup__error"></span>
+          <input id="name-auth" placeholder="Введите своё имя" required class="popup__input" type="text">
+          <span id="error-name-auth" class="popup__error"></span>
         </label>
         <span class="popup__error popup__error_user"></span>
-        <button class="button button__disabled" type="submit" disabled>Зарегистрироваться</button>
+        <button class="button button__popup button__disabled" type="submit" disabled>Зарегистрироваться</button>
         <p class="popup__footer">или <button class="button button_popup popup__link" data-modal="login" >Войти</button></p>
       </form>
     </div>
@@ -171,5 +173,4 @@
   </footer>
   <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
-
 </html>

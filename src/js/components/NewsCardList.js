@@ -1,12 +1,11 @@
 class NewsCardList {
-  constructor(container, createArticle, preloader) {
+  constructor(container,createArticle, preloader) {
     this.container = container
     this.createArticle = createArticle
     this.preloader = preloader
     this.articles = []
 
     this.render = this.render.bind(this)
-    this.addArticle = this.addArticle.bind(this)
     this.more = this.more.bind(this)
     this.renderLoading = this.renderLoading.bind(this)
     
@@ -25,7 +24,7 @@ class NewsCardList {
   }
 
   addArticle(data) {
-    this.container.append(this.createArticle(data))
+    this.container.append(this.createArticle(data));
   }
 
   render(articles) {
@@ -43,4 +42,5 @@ class NewsCardList {
     });
   }
 }
+
 export default NewsCardList

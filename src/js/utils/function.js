@@ -23,4 +23,12 @@
   return (`${day} ${monthWord}, ${year}`);
 }
 
-export default dataFormat
+function removeClassFail() {
+  document.querySelector('.result-search__fail').classList.remove('result-search__fail_visible')
+}
+
+function removeClassPositive(){
+  document.querySelector('.result-search__positive').classList.remove('result-search__positive_visible')
+}
+
+export { dataFormat, removeClassFail, removeClassPositive}

@@ -1,7 +1,8 @@
 @import './_user/popup__error_user.css';
+@import './_search-place/popup__error_search-place.css';
 
 .popup__error {
-  font-family: Inter;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: normal;
   font-size: 12px;

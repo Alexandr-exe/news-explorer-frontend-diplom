@@ -29,9 +29,6 @@ class Popup {
   }
 
   clearContent() {
-    this.container.querySelectorAll('.popup__input').forEach((el) => {
-      el.value = '';
-    });
     this.container.querySelectorAll('.popup__error').forEach((el) => {
       el.textContent = '';
     });

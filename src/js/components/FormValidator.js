@@ -1,8 +1,11 @@
+import { REG_EXP_EMAIL } from '../constats/constants'
+
 class FormValidator {
   constructor(form) {
     this.form = form;
     this.checkInputValidity = this.checkInputValidity.bind(this);
     this.sendToValidate = this.sendToValidate.bind(this);
+    this._isValidEmail = this._isValidEmail.bind(this);
     this.setEventListeners = this.setEventListeners.bind(this)
 
     this.setEventListeners()
@@ -11,12 +14,12 @@ class FormValidator {
   setSubmitButton(button, state) {
     if (state) {
       button.removeAttribute('disabled');
-      button.classList.add(`popup__button_valid`);
-      button.classList.remove(`popup__button_invalid`);
+      button.classList.add('button__active');
+      button.classList.remove('button__disabled');
     } else {
       button.setAttribute('disabled', true);
-      button.classList.add(`popup__button_invalid`);
-      button.classList.remove(`popup__button_valid`);
+      button.classList.add('button__disabled');
+      button.classList.remove('button__active');
     }
   }
 
@@ -30,6 +33,10 @@ class FormValidator {
     });
   }
 
+  _isValidEmail(input) {
+    return REG_EXP_EMAIL.test(input);
+  };
+
   checkInputValidity(input) {
     if (input.tagName !== "INPUT") return true;
     const validity = input.validity;
@@ -37,14 +44,12 @@ class FormValidator {
       this.errorMessage(input).textContent = "";
       return true;
     }
-    if (validity.tooShort) {
-      this.errorMessage(input).textContent = "Введите от 2 до 30 символов";
+
+    if (validity.patternMismatch && input.type === "email") {
+      this.errorMessage(input).textContent = 'Ввидите валидный email';
       return false;
     }
-    if (validity.typeMismatch || validity.type === 'url') {
-      this.errorMessage(input).textContent = 'Здесь должна быть ссылка';
-      return false
-    }
+
     if (validity.valueMissing) {
       this.errorMessage(input).textContent = "Обязательное поле";
       return false
@@ -55,11 +60,15 @@ class FormValidator {
     const submit = this.form.querySelector('.button')
     let input = [...this.form.elements].reduce((acc, el) => this.checkInputValidity(el) && acc, true);
     this.setSubmitButton(submit, input);
+
   }
+
+
 
   setEventListeners() {
     this.form.addEventListener('input', this.sendToValidate);
   }
+
 }
 
 export default FormValidator

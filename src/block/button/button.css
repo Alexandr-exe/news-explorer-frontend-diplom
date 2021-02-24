@@ -1,20 +1,22 @@
 @import './__auth/button__auth.css';
 @import './__auth-on/button__auth-on.css';
 @import './__search/button__search.css';
-@import './__bookmark/button__bookmark.css';
+@import './__book-unmark/button__book-unmark.css';
+@import './__book-mark/button__book-mark.css';
 @import './__delete/button__delete.css';
 @import './__desktop/button__desktop.css';
 @import './__more/button__more.css';
 @import './__active/button__active.css';
 @import './__disabled/button__disabled.css';
-@import './__popup/botton__popup.css';
+@import './__popup/button__popup.css';
+@import './_hidden/button_hidden.css';
 
 .button {
   font-family: "Roboto";
   font-weight: 500;
   cursor: pointer;
   opacity: 1;
-  transition: ease-in  .1s;
+  transition: ease-in .1s;
 }
 
 .button:hover {

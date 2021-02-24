@@ -2,10 +2,11 @@ import './styles/index.css';
 
 import Popup from './js/components/Popup';
 import NewsApi from './js/api/NewsApi';
+import MainApi from './js/api/MainApi';
 import NewsCard from './js/components/NewsCard';
 import NewsCardList from './js/components/NewsCardList';
 import FormValidator from './js/components/FormValidator';
-import { newsApiServer } from './js/config/config';
+import { newsApiServer, defaultMainApi } from './js/config/config';
 import { removeClassFail, removeClassPositive } from './js/utils/function'
 
 
@@ -26,7 +27,7 @@ const { search } = searchForm.elements
 
 
 function clearArticle(articleArr) {
-  const article = new NewsCard(popup.open);
+  const article = new NewsCard(popup.open, search, mainApi);
   article.createCard(articleArr)
   article.setEventListeners()
   return article.element
@@ -37,6 +38,7 @@ const newsCardList = new NewsCardList(resultSearch, clearArticle, preloader);
 const searchFormValidator = new FormValidator(searchForm);
 const loginFormValidator = new FormValidator(loginForm);
 const authFormValidator = new FormValidator(authForm);
+const mainApi = new MainApi(defaultMainApi);
 
 window.addEventListener('keydown', function closeFormByKeydown(event) {
   if (event.keyCode === 27) {

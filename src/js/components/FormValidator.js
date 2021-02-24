@@ -1,4 +1,4 @@
-import { REG_EXP_EMAIL } from '../constats/constants'
+import { REG_EXP_EMAIL } from '../constants/constants'
 
 class FormValidator {
   constructor(form) {

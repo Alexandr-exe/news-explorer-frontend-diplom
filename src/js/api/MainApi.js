@@ -16,29 +16,53 @@ class MainApi {
   signUp(email, password, name) {
     return fetch(`${this.server}signup`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(email, password, name),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return res.json().then(Promise.reject.bind(Promise));
-    });
-  };
+      credentials: 'include',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        name: name
+      }),
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        throw err;
+      })
+    }
 
   signIn (email, password) {
-    return fetch(`${this.server}signin`, {
+    return fetch(`${this.options.myURL}signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       credentials: 'include',
-      body: JSON.stringify(email, password),
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+
     })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        throw err;
+      })
   }
+  
   getUser() {
     return fetch(`${this.server}users/me`, {
       method: 'GET',

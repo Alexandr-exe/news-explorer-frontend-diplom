@@ -16,10 +16,11 @@ const crosses = document.querySelectorAll('.popup__close');
 const resultSearch = document.querySelector('.result-search__card');
 const more = document.querySelector('.button__more')
 const preloader = document.querySelector('.preloader')
+const succes = document.querySelector('.popup[modal-data="susses"]')
 
 
 const loginForm = document.forms.login
-const authForm = document.forms.auth
+const regForm = document.forms.reg
 const searchForm = document.forms.search
 
 const { search } = searchForm.elements
@@ -32,19 +33,21 @@ function clearArticle(articleArr) {
   article.setEventListeners()
   return article.element
 }
-const popup = new Popup(body, crosses);
+
 const newsApi = new NewsApi(newsApiServer);
 const newsCardList = new NewsCardList(resultSearch, clearArticle, preloader);
 const searchFormValidator = new FormValidator(searchForm);
 const loginFormValidator = new FormValidator(loginForm);
-const authFormValidator = new FormValidator(authForm);
-const mainApi = new MainApi(defaultMainApi);
+const regFormValidator = new FormValidator(regForm);
+const mainApi = new MainApi('http://api.apinews.xyz/');
+const popup = new Popup(body, crosses, mainApi.signUp, succes);
 
 window.addEventListener('keydown', function closeFormByKeydown(event) {
   if (event.keyCode === 27) {
     popup.close()
   }
 })
+
 
 function renderSearch(event) {
   event.preventDefault()
@@ -68,17 +71,18 @@ function renderSearch(event) {
       newsCardList.renderLoading(false)
     })
 }
-
+regForm.addEventListener('submit', popup.registr)
 searchForm.addEventListener('submit', renderSearch)
 more.addEventListener('click', newsCardList.more)
 
 buttons.forEach(button => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
-    authForm.reset();
+    regForm.reset();
     loginForm.reset();
-    authFormValidator.resetError();
+    regFormValidator.resetError();
     loginFormValidator.resetError();
     popup.open(event)
+    console.log()
   })
 })

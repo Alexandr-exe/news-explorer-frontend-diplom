@@ -57,10 +57,10 @@ class NewsCard {
             .then((RES) => {
               this.articleID = RES.data._id;
             })
-            .catch((err) => console.log(err));
+            .catch((err) => { throw err; });
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => { throw err; });
   }
 
   setEventListeners() {

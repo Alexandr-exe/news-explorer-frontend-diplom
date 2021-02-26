@@ -3,9 +3,11 @@ import { REG_EXP_EMAIL } from '../constants/constants';
 class FormValidator {
   constructor(form) {
     this.form = form;
+
     this.checkInputValidity = this.checkInputValidity.bind(this);
+    this.setSubmitButton = this.setSubmitButton.bind(this);
     this.sendToValidate = this.sendToValidate.bind(this);
-    this._isValidEmail = this._isValidEmail.bind(this);
+    this.isValidEmail = this.isValidEmail.bind(this);
     this.setEventListeners = this.setEventListeners.bind(this);
 
     this.setEventListeners();
@@ -28,12 +30,13 @@ class FormValidator {
   }
 
   resetError() {
-    this.form.querySelectorAll('.error').forEach(err => {
-      err.textContent = '';
-    });
+    this.form.querySelectorAll('.error')
+      .forEach((text) => {
+        text.textContent = '';
+      });
   }
 
-  _isValidEmail(input) {
+  isValidEmail(input) {
     return REG_EXP_EMAIL.test(input);
   }
 
@@ -58,7 +61,8 @@ class FormValidator {
 
   sendToValidate() {
     const submit = this.form.querySelector('.button');
-    let input = [...this.form.elements].reduce((acc, el) => this.checkInputValidity(el) && acc, true);
+    const input = [...this.form.elements]
+      .reduce((acc, el) => this.checkInputValidity(el) && acc, true);
     this.setSubmitButton(submit, input);
   }
 

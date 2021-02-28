@@ -28,7 +28,7 @@ class NewsCardList {
   }
 
   render(articles) {
-    this.articlesArr = articles;
+    this.articles = articles;
     const initArr = articles.slice(0, 3);
     initArr.forEach(data => {
       this.addArticle(data)

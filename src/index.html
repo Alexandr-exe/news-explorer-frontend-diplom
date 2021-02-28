@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис по поиску новостей" />
   <meta name="author" content="Alexandr Tatarnikov" />
-  
+
   <title>NewExplorer</title>
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" type="text/css">
   <link rel="icon" href="<%=require('./images/favicon.png')%>">
@@ -20,7 +20,16 @@
         <nav class="nav">
           <div class="nav__desktop-menu nav__desktop-menu_index">
             <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-            <button class="button button__desktop button_popup " data-modal="reg">Авторизироваться</button>
+            <a class="nav__text nav_hidden" id="text-on-login" href="./saved.html">Сохранённые статьи</a>
+            <button id="button-logout" class="button button__desktop button__desktop_header button_hidden"><span id="name-user"></span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M10 6L6 6L6 18H10V20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H10V6ZM17.5856 13L13.2927 17.1339L14.707 18.4958L21.4141 12.0371L14.707 5.57837L13.2927 6.9402L17.5856 11.0741H8V13H17.5856Z"
+                  fill="white" />
+              </svg>
+            </button>
+            <button class="button button__desktop button_popup" id="auth-button"
+              data-modal="reg">Авторизироваться</button>
           </div>
           <label class="nav__label">
             <input class="nav__checkbox" type="checkbox">
@@ -44,12 +53,12 @@
       <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
         кабинете.</p>
     </div>
-    <form class="search" name="search">
-      <input placeholder="Политика" id="search" class="search__input" required type="text" />
-      
+    <form class="search" id="search" name="search">
+      <input placeholder="Политика" id="input-search" class="search__input" required type="text" />
+
       <button type="submit" class="button button__search">Искать</button>
-      <span id="error-search" class="popup__error popup__error_search-place"></span>
-      
+      <span id="error-input-search" class="popup__error popup__error_search-place"></span>
+
     </form>
 
   </header>
@@ -67,7 +76,7 @@
         </svg>
         <h2 class="result-search__title result-search__title_fail">Ничего не найдено</h2>
         <p class="result-search__text">К сожалению по вашему запросу
-        ничего не найдено.</p>
+          ничего не найдено.</p>
       </div>
       <div class="preloader">
         <i class="preloader__circle"></i>
@@ -96,10 +105,12 @@
   <div class="popup" data-modal="login">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-      <form class="popup__form" name="login">
+      <form class="popup__form" id="singIn" name="login">
         <h2 class="popup__title">Вход</h2>
         <label class="popup__label" for="email-login">Email
-          <input id="email-login" placeholder="Введите почту" pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)" required class="popup__input" type="email">
+          <input id="email-login" placeholder="Введите почту"
+            pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)"
+            required class="popup__input" type="email">
           <span id="error-email-login" class="popup__error"></span>
         </label>
         <label class="popup__label" for="password-login">Пароль
@@ -107,17 +118,20 @@
           <span id="error-password-login" class="popup__error"></span>
         </label>
         <button class="button button__popup button__disabled" type="submit" disabled>Войти</button>
-        <p class="popup__footer">или <button  class="button button_popup popup__link" data-modal="auth">Зарегистрироваться</button></p>
+        <p class="popup__footer">или <button class="button button_popup popup__link"
+            data-modal="reg">Зарегистрироваться</button></p>
       </form>
     </div>
   </div>
-  <div class="popup" data-modal="reg" >
+  <div class="popup" data-modal="reg">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
       <form class="popup__form" id="singUp" name="reg" novalidate>
         <h2 class="popup__title">Регистрация</h2>
         <label class="popup__label" for="email-reg">Email
-          <input  id="email-reg" placeholder="Введите почту" pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)" class="popup__input" type="email"  required>
+          <input id="email-reg" placeholder="Введите почту"
+            pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)"
+            class="popup__input" type="email" required>
           <span id="error-email-reg" class="popup__error"></span>
         </label>
         <label class="popup__label" for="password-reg">Пароль
@@ -129,8 +143,10 @@
           <span id="error-name-reg" class="popup__error"></span>
         </label>
         <span class="popup__error popup__error_user"></span>
-        <button name="singUp"  class="button button__popup button__disabled" type="submit" disabled>Зарегистрироваться</button>
-        <p class="popup__footer">или <button class="button button_popup popup__link" data-modal="login" >Войти</button></p>
+        <button name="singUp" class="button button__popup button__disabled" type="submit"
+          disabled>Зарегистрироваться</button>
+        <p class="popup__footer">или <button class="button button_popup popup__link" data-modal="login">Войти</button>
+        </p>
       </form>
     </div>
   </div>
@@ -173,4 +189,5 @@
   </footer>
   <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
+
 </html>

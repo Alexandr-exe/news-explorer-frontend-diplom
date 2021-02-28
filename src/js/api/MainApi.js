@@ -8,9 +8,13 @@ class MainApi {
     this.unlogin = this.unlogin.bind(this);
     this.getArticles = this.getArticles.bind(this);
     this.createArticle = this.createArticle.bind(this);
-    this.postArticle = this.postArticle.bind(this);
-    this.deleteCard = this.deleteCard.bind(this);
+    this.removeArticle = this.removeArticle.bind(this);
     this._returnJson = this._returnJson.bind(this);
+
+    this.headers = {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   }
 
   signUp(email, password, name) {
@@ -21,9 +25,9 @@ class MainApi {
       },
       credentials: 'include',
       body: JSON.stringify({
-        email: email,
-        password: password,
-        name: name
+        email,
+        password,
+        name
       }),
     })
       .then(res => {
@@ -34,74 +38,37 @@ class MainApi {
         return json.then(Promise.reject.bind(Promise))
       })
       .catch((err) => {
-        throw err;
-      })
-    }
-
-  signIn (email, password) {
-    return fetch(`${this.options.myURL}signin`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include',
-      body: JSON.stringify({
-        email: email,
-        password: password
-      }),
-
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        const json = res.json();
-        return json.then(Promise.reject.bind(Promise))
-      })
-      .catch((err) => {
-        throw err;
+        console.log(err)
       })
   }
-  
+
+  signIn(email, password) {
+    return fetch(`${this.server}signin`, {
+      method: 'POST',
+      headers: this.headers,
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password
+      }),
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   getUser() {
     return fetch(`${this.server}users/me`, {
       method: 'GET',
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        const json = res.json();
-        return json.then(Promise.reject.bind(Promise));
-      })
-      .catch((err) => {
-        return undefined;
-      });
-  }
-
-  unlogin(){
-    return fetch(`${this.server}exit`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-
-      body: JSON.stringify({ email: '', password: '' }),
-    });
-  };
-
-  getArticles () {
-    return fetch(`${this.server}articles`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: this.headers,
     })
       .then((res) => {
         if (res.ok) {
@@ -113,61 +80,85 @@ class MainApi {
       .catch((err) => {
         throw err;
       });
-  };
-
-  createArticle(saveData) {
-    return fetch(`${this.server}articles`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: this.headers,
-      body: JSON.stringify({
-        keyword: saveData.keyword,
-        title: saveData.title,
-        text: saveData.description,
-        date: saveData.date,
-        source: saveData.source,
-        link: saveData.link,
-        image: saveData.image,
-      }),
-    }).then((res) => this._returnJson(res));
-  };
-
-  postArticle(articleData) {
-    return fetch(`${this.server}articles`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        keyword: articleData.keyword,
-        title: articleData.title,
-        text: articleData.description,
-        date: articleData.date,
-        source: articleData.source,
-        link: articleData.link,
-        image: articleData.image
-      }),
-    }).then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-      const json = res.json();
-      return json.then(Promise.reject.bind(Promise))
-    })
-      .catch((err) => { throw err; })
   }
 
-  deleteCard(id) {
+  removeArticle(id) {
     return fetch(`${this.server}articles/${id}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: this.headers,
-      body: JSON.stringify({
-        id: id,
-      }),
-    }).then((res) => this._returnJson(res));
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        alert(err);
+      })
+  }
+
+  unlogin() {
+    return fetch(`${this.server}exit`, {
+      method: 'POST',
+      headers:this.headers,
+      credentials: 'include',
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        // const json = res.json();
+        // return json.then(Promise.reject.bind(Promise))
+      })
   };
+
+  getArticles() {
+    return fetch(`${this.server}articles/`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: this.headers,
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        throw err;
+      })
+  }
+
+  createArticle(card) {
+    return fetch(`${this.server}articles`, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        keyword: card.keyword,
+        title: card.title,
+        text: card.text,
+        date: card.date,
+        source: card.source,
+        link: card.link,
+        image: card.image
+      }),
+      headers: this.headers,
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        const json = res.json();
+        return json.then(Promise.reject.bind(Promise))
+      })
+      .catch((err) => {
+        throw err;
+      })
+  }
 
   _returnJson(res) {
     if (!res.ok) {

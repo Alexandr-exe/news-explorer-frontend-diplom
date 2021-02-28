@@ -1,13 +1,14 @@
 import { dataFormat } from '../utils/function';
-import { imageUrl } from '../constants/constants';
+import { imageUrl, search } from '../constants/constants';
 
 class NewsCard {
-  constructor(openend, search, api) {
-    this.openend = openend;
-    this.search = search;
-    this.api = api;
+  constructor(api) {
+    this.api = api
 
     this.createCard = this.createCard.bind(this);
+    this._saveArticle = this._saveArticle.bind(this);
+    this.createSaveArticle = this.createSaveArticle.bind(this);
+    this._removeCard = this._removeCard.bind(this);
     this.setEventListeners = this.setEventListeners.bind(this);
   }
 
@@ -33,39 +34,77 @@ class NewsCard {
 
     const fragment = document.createElement('div');
     fragment.insertAdjacentHTML('afterbegin', markCard);
-
-    this.element = fragment.firstElementChild;
-    return fragment.firstElementChild;
+    return this.element = fragment.firstElementChild;
   }
 
-  _saveCard() {
-    this.api.getUser()
-      .then((res) => {
-        if (res !== undefined) {
-          this.element.querySelector('.button__book-unmark').classList.add('button_hidden');
-          this.element.querySelector('.button__book-mark').classList.remove('button_hidden');
-          const articleData = {
-            keyword: this.search.value,
-            title: this.data.title,
-            text: this.data.description,
-            date: this.data.publishedAt,
-            source: this.data.source.name,
-            link: this.data.url,
-            image: this.data.urlToImage,
-          };
-          this.api.postArticle(articleData)
-            .then((RES) => {
-              this.articleID = RES.data._id;
-            })
-            .catch((err) => { throw err; });
-        }
-      })
-      .catch((err) => { throw err; });
+  _saveArticle() {
+    const buttonMark = this.element.querySelector('.button__book-mark')
+    const buttonUnmark = this.element.querySelector('.button__book-unmark')
+    const article = {
+      keyword: search.value,
+      title: this.element.querySelector('.card__title').textContent,
+      text: this.element.querySelector('.card__text').textContent,
+      date: this.element.querySelector('.card__date').textContent,
+      source: this.element.querySelector('.card__sourse').textContent,
+      link: this.element.querySelector('.card__content').getAttribute('href'),
+      image: this.element.querySelector('.card__img').getAttribute('src')
+    }
+    this.api.createArticle(article).then((data) => {
+      if (data !== undefined) {
+        buttonUnmark.classList.add('button_hidden');
+        buttonMark.classList.remove('button_hidden');
+      }
+    }).catch((e) => {
+      console.log(e);
+    })
+
   }
+
+  createSaveArticle(article) {
+    const image = article.image === null ? imageUrl : article.image;
+    const markUp = `
+        <div class="card">
+          <figure class="card__header">
+            <img class="card__img" src="${image}" alt="фото статьи">
+            <div class="card__interactive">
+              <span class="card__tag">${article.keyword}</span>
+              <button class="button button__delete"></button>
+            </div>
+          </figure>
+          <a href="${article.link}" class="card__content">
+            <p class="card__date">${article.date}</p>
+            <p class="card__title">${article.title}</p>
+            <p class="card__text">${article.text}</p>
+            <p class="card__sourse">${article.source}</p>
+          </a>
+        </div>
+    `
+    const fragment = document.createElement('div');
+    fragment.insertAdjacentHTML('afterbegin', markUp)
+    this.element = fragment.firstElementChild
+    this.element.id = article._id
+    return this.element
+  }
+
+  _removeCard(event) {
+    if (event.target.classList.contains('button__delete')) {
+      if (confirm("Вы уверены, что хотите удалить cтатью?")) {
+        const card = event.target.closest('.card');
+        this.api.removeArticle(card.id).then((data) => {
+          
+          if (data !== undefined) {
+            card.remove();
+          }
+        })
+          .catch((err) => {
+            alert(err);
+          });
+      }}
+  }
+
 
   setEventListeners() {
-    this.element.querySelector('.button__auth-on').addEventListener('click', this.openend);
-    this.element.querySelector('.button__book-mark').addEventListener('click', this._saveCard);
+    this.element.querySelector('.button__book-unmark').addEventListener('click', this._saveArticle);
   }
 }
 

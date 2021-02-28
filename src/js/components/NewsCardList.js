@@ -1,24 +1,25 @@
+
+import { preloader} from '../constants/constants';
+
 class NewsCardList {
-  constructor(container, createArticle, preloader) {
+  constructor(container, createArticle, getArticles ) {
     this.container = container;
     this.createArticle = createArticle;
-    this.preloader = preloader;
+    this.getArticles = getArticles;
     this.articles = [];
 
     this.render = this.render.bind(this);
+    this.addArticle = this.addArticle.bind(this);
+    this.getSaveArticle = this.getSaveArticle.bind(this);
     this.more = this.more.bind(this);
     this.renderLoading = this.renderLoading.bind(this);
   }
 
-  clearArticle() {
-    this.container.innerHTML = '';
-  }
-
   renderLoading(isLoading) {
     if (isLoading) {
-      this.preloader.classList.add('preloader_visible');
+      preloader.classList.add('preloader_visible');
     } else {
-      this.preloader.classList.remove('preloader_visible');
+      preloader.classList.remove('preloader_visible');
     }
   }
 
@@ -27,11 +28,24 @@ class NewsCardList {
   }
 
   render(articles) {
-    this.articles = articles;
+    this.articlesArr = articles;
     const initArr = articles.slice(0, 3);
-    for (let i of initArr) {
-      this.addArticle(i);
-    }
+    initArr.forEach(data => {
+      this.addArticle(data)
+    });
+  }
+
+  getSaveArticle() {
+    this.getArticles()
+    .then((data) => {
+      const card = data.article
+      for (let i of card){
+        this.addArticle(i)
+      }
+      
+    }).catch((err) => {
+      alert(err);
+    })
   }
 
   more() {

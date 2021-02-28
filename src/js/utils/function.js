@@ -1,4 +1,4 @@
- function dataFormat(wrongDate) {
+function dataFormat(wrongDate) {
   const year = wrongDate.split('-')[0];
   const month = wrongDate.split('-')[1];
   const day = wrongDate.split('-')[2];
@@ -27,8 +27,8 @@ function removeClassFail() {
   document.querySelector('.result-search__fail').classList.remove('result-search__fail_visible')
 }
 
-function removeClassPositive(){
+function removeClassPositive() {
   document.querySelector('.result-search__positive').classList.remove('result-search__positive_visible')
 }
 
-export { dataFormat, removeClassFail, removeClassPositive}
+export { dataFormat, removeClassFail, removeClassPositive }

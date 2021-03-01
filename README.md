@@ -50,4 +50,6 @@ npm run dev - Режим разработки
 
 npm build - Режим сборки проекта для продакшн
 
+back-end - [https://github.com/Alexandr-exe/news-explorer-api-diplom]
+
 link на проект [https://alexandr-exe.github.io/news-explorer-frontend-diplom/]

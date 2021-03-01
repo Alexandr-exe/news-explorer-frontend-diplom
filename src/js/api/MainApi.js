@@ -10,11 +10,6 @@ class MainApi {
     this.createArticle = this.createArticle.bind(this);
     this.removeArticle = this.removeArticle.bind(this);
     this._returnJson = this._returnJson.bind(this);
-
-    this.headers = {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${localStorage.getItem('token')}`
-    }
   }
 
   signUp(email, password, name) {
@@ -67,8 +62,10 @@ class MainApi {
   getUser() {
     return fetch(`${this.server}users/me`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
-      headers: this.headers,
     })
       .then((res) => {
         if (res.ok) {
@@ -85,8 +82,10 @@ class MainApi {
   removeArticle(id) {
     return fetch(`${this.server}articles/${id}`, {
       method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
-      headers: this.headers,
     })
       .then(res => {
         if (res.ok) {
@@ -103,7 +102,9 @@ class MainApi {
   unlogin() {
     return fetch(`${this.server}exit`, {
       method: 'POST',
-      headers:this.headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
     })
       .then(res => {
@@ -118,8 +119,11 @@ class MainApi {
   getArticles() {
     return fetch(`${this.server}articles/`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
-      headers: this.headers,
+ 
     })
       .then(res => {
         if (res.ok) {
@@ -136,6 +140,9 @@ class MainApi {
   createArticle(card) {
     return fetch(`${this.server}articles`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
       body: JSON.stringify({
         keyword: card.keyword,
@@ -146,7 +153,7 @@ class MainApi {
         link: card.link,
         image: card.image
       }),
-      headers: this.headers,
+
     })
       .then(res => {
         if (res.ok) {

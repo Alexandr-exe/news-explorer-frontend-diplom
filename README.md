@@ -52,4 +52,4 @@ npm build - Режим сборки проекта для продакшн
 
 back-end - [https://github.com/Alexandr-exe/news-explorer-api-diplom]
 
-link на проект [https://alexandr-exe.github.io/news-explorer-frontend-diplom/]
+link на проект [https://apinews.xyz/]

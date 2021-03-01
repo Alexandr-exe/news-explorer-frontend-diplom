@@ -12,9 +12,13 @@ class NewsCardList {
     this.addArticle = this.addArticle.bind(this);
     this.getSaveArticle = this.getSaveArticle.bind(this);
     this.more = this.more.bind(this);
+    this.clearArticle =this.clearArticle.bind(this)
     this.renderLoading = this.renderLoading.bind(this);
   }
 
+  clearArticle(){
+    this.container.innerHTML =''
+  }
   renderLoading(isLoading) {
     if (isLoading) {
       preloader.classList.add('preloader_visible');
@@ -26,6 +30,7 @@ class NewsCardList {
   addArticle(data) {
     this.container.append(this.createArticle(data));
   }
+
 
   render(articles) {
     this.articles = articles;

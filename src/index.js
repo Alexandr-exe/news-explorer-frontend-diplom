@@ -1,9 +1,11 @@
 import './styles/index.css';
+
 import {
   body,
   buttons,
   crosses,
   resultSearch,
+  search,
   more,
   loginForm,
   regForm,
@@ -51,10 +53,11 @@ window.addEventListener('keydown', (event) => {
 
 function renderSearch(event) {
   event.preventDefault();
+  newsCardList.clearArticle()
   newsCardList.renderLoading(true);
   removeClassFail();
   removeClassPositive();
-  newsApi.getApi()
+  newsApi.getApi(search.value)
     .then((res) => {
       if (res.articles.length === 0) {
         document.querySelector('.result-search__fail').classList.add('result-search__fail_visible');

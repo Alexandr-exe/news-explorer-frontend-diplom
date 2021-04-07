@@ -1,0 +1,6 @@
+.button__desktop.button__desktop_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white
+}

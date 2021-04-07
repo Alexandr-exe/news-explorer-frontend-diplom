@@ -8,11 +8,8 @@
 @import './__content/nav__content.css';
 @import './__text/nav__text.css';
 @import './__text/_black/nav__text_black.css';
+@import './_hidden/nav_hidden.css';
 
-
-.nav {
-
-}
 
 .nav__label>.nav__checkbox:checked+.nav__img+.nav__popup {
   display: block;

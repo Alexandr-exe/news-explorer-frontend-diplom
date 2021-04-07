@@ -1,4 +1,6 @@
 @import './_black/button__desktop_black.css';
+@import './_header/button__desktop_header.css';
+
 .button__desktop {
   box-sizing: border-box;
   padding: 12px 13px;

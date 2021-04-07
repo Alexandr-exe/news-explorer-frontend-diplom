@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Сервис по поиску новостей" />
   <meta name="author" content="Alexandr Tatarnikov" />
-  
+
   <title>NewExplorer</title>
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>" type="text/css">
   <link rel="icon" href="<%=require('./images/favicon.png')%>">
 </head>
 
-<body>
+<body id="body">
   <header class="header">
     <div class="header__wrapper header__wrapper_line-white">
       <div class="header__item">
@@ -20,7 +20,16 @@
         <nav class="nav">
           <div class="nav__desktop-menu nav__desktop-menu_index">
             <a class="nav__text nav__text_active" href="./index.html">Главная</a>
-            <button class="button button__desktop">Авторизироваться</button>
+            <a class="nav__text nav_hidden" id="text-on-login" href="./saved.html">Сохранённые статьи</a>
+            <button id="button-logout" class="button button__desktop button__desktop_header button_hidden"><span id="name-user"></span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M10 6L6 6L6 18H10V20H6C4.89543 20 4 19.1046 4 18V6C4 4.89543 4.89543 4 6 4H10V6ZM17.5856 13L13.2927 17.1339L14.707 18.4958L21.4141 12.0371L14.707 5.57837L13.2927 6.9402L17.5856 11.0741H8V13H17.5856Z"
+                  fill="white" />
+              </svg>
+            </button>
+            <button class="button button__desktop button_popup" id="auth-button"
+              data-modal="reg">Авторизироваться</button>
           </div>
           <label class="nav__label">
             <input class="nav__checkbox" type="checkbox">
@@ -32,7 +41,7 @@
                   <a class="nav__text" href="./index.html">Главная</a>
                   <a class="nav__text" href="#">Сохранённые статьи</a>
                 </span>
-                <span class="button button__auth">Авторизироваться</span>
+                <button class="button button__auth button_popup" data-modal="reg">Авторизироваться</button>
               </span>
             </span>
           </label>
@@ -44,15 +53,18 @@
       <p class="header__text">Находите самые свежие статьи на &nbsp;любую тему и сохраняйте в своём&nbsp;личном
         кабинете.</p>
     </div>
-    <div class="search">
-      <input placeholder="Политика" class="search__input" required type="text" />
+    <form class="search" id="search" name="search">
+      <input placeholder="Политика" id="input-search" class="search__input" required type="text" />
+
       <button type="submit" class="button button__search">Искать</button>
-    </div>
+      <span id="error-input-search" class="popup__error popup__error_search-place"></span>
+
+    </form>
 
   </header>
   <main class="main">
     <article class="result-search result-search_visible">
-      <div class="result-search__fail result-search__fail_visible">
+      <div class="result-search__fail">
         <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="43" cy="43" r="36.5" stroke="#D1D2D6" />
           <path d="M69 69L88.5 88.5" stroke="#D1D2D6" />
@@ -64,66 +76,15 @@
         </svg>
         <h2 class="result-search__title result-search__title_fail">Ничего не найдено</h2>
         <p class="result-search__text">К сожалению по вашему запросу
-        ничего не найдено.</p>
+          ничего не найдено.</p>
       </div>
-      <div class="preloader preloader_visible">
+      <div class="preloader">
         <i class="preloader__circle"></i>
         <p class="preloader__title">Идет поиск новостей...</p>
       </div>
-      <div class="result-search__positive result-search__positive_visible">
+      <div class="result-search__positive">
         <h2 class="result-search__title">Результаты поиска</h2>
         <div class="result-search__card">
-          <div class="card">
-            <div class="card__header">
-              <img class="card__img" src="<%=require('./images/image_08.jpg')%>" alt="фото статьи">
-              <div class="card__interactive">
-                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
-                <button class="button button__bookmark button__bookmark_add"></button>
-              </div>
-            </div>
-            <a href="#" class="card__content">
-              <p class="card__date">2 августа, 2019</p>
-              <p class="card__title">Национальное достояние – парки</p>
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                складываться
-                система национальных парков...</p>
-              <p class="card__sourse">Лента.ру</p>
-            </a>
-          </div>
-          <div class="card">
-            <div class="card__header">
-              <img class="card__img" src="<%=require('./images/image_06.jpg')%>" alt="фото статьи">
-              <div class="card__interactive">
-                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
-                <button class="button button__bookmark"></button>
-              </div>
-            </div>
-            <a href="#" class="card__content">
-              <p class="card__date">2 августа, 2019</p>
-              <p class="card__title">Национальное достояние – парки</p>
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                складываться
-                система национальных парков...</p>
-              <p class="card__sourse">Медуза</p>
-            </a>
-          </div>
-          <div class="card">
-            <figure class="card__header">
-              <img class="card__img" src="<%=require('./images/image_07.jpg')%>" alt="фото статьи">
-              <div class="card__interactive">
-                <button class="button button__auth-on">Войдите, чтобы сохранять статьи</button>
-                <button class="button button__bookmark"></button>
-              </div>
-            </figure>
-            <a href="#" class="card__content">
-              <p class="card__date">2 августа, 2019</p>
-              <p class="card__title">Национальное достояние – парки</p>
-              <p class="card__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                складываться
-                система национальных парков...</p>
-              <p class="card__sourse">риа</p>
-            </a>
-          </div>
         </div>
         <button class="button button__more">Показать еще</button>
       </div>
@@ -141,50 +102,60 @@
       </div>
     </article>
   </main>
-  <div class="popup">
+  <div class="popup" data-modal="login">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-      <form class="popup__form" name="login">
+      <form class="popup__form" id="singIn" name="login">
         <h2 class="popup__title">Вход</h2>
         <label class="popup__label" for="email-login">Email
-          <input id="email-login" placeholder="Введите почту" required class="popup__input" type="text">
-          <span class="popup__error"></span>
+          <input id="email-login" placeholder="Введите почту"
+            pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)"
+            required class="popup__input" type="email">
+          <span id="error-email-login" class="popup__error"></span>
         </label>
         <label class="popup__label" for="password-login">Пароль
           <input id="password-login" placeholder="Введите пароль" required class="popup__input" type="password">
-          <span class="popup__error"></span>
+          <span id="error-password-login" class="popup__error"></span>
         </label>
-        <button class="button button__disabled" type="submit" disabled>Войти</button>
-        <p class="popup__footer">или <a href="#" class="popup__link">Зарегистрироваться</a></p>
+        <button class="button button__popup button__disabled" type="submit" disabled>Войти</button>
+        <p class="popup__footer">или <button class="button button_popup popup__link"
+            data-modal="reg">Зарегистрироваться</button></p>
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup" data-modal="reg">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
-      <form class="popup__form" name="auth">
+      <form class="popup__form" id="singUp" name="reg" novalidate>
         <h2 class="popup__title">Регистрация</h2>
-        <label class="popup__label" for="email-auth">Email
-          <input id="email-auth" placeholder="Введите почту" required class="popup__input" type="email">
-          <span class="popup__error"></span>
+        <label class="popup__label" for="email-reg">Email
+          <input id="email-reg" placeholder="Введите почту"
+            pattern="([a-z0-9]+(((-)([a-z0-9])+(_)?)+)?(((_)([a-z0-9])+(-)?)+)?@([a-z0-9]+(-[a-z0-9]+)?\.)+[a-z0-9]+)"
+            class="popup__input" type="email" required>
+          <span id="error-email-reg" class="popup__error"></span>
         </label>
-        <label class="popup__label" for="password-auth">Пароль
-          <input id="password-auth" placeholder="Введите пароль" required class="popup__input" type="password">
-          <span class="popup__error"></span>
+        <label class="popup__label" for="password-reg">Пароль
+          <input id="password-reg" placeholder="Введите пароль" class="popup__input" type="password" required>
+          <span id="error-password-reg" class="popup__error"></span>
+        </label>
+        <label class="popup__label" for="name">Имя
+          <input id="name-reg" placeholder="Введите своё имя" required class="popup__input" type="text">
+          <span id="error-name-reg" class="popup__error"></span>
         </label>
         <span class="popup__error popup__error_user"></span>
-        <button class="button button__disabled" type="submit" disabled>Зарегистрироваться</button>
-
-        <p class="popup__footer">или <a href="#" class="popup__link">Войти</a></p>
+        <button name="singUp" class="button button__popup button__disabled" type="submit"
+          disabled>Зарегистрироваться</button>
+        <p class="popup__footer">или <button class="button button_popup popup__link" data-modal="login">Войти</button>
+        </p>
       </form>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup" data-modal="succes">
     <div class="popup__container">
       <img class="popup__close" src="<%=require('./images/back.svg')%>" alt="закрыть">
       <div class="popup__success">
         <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
-        <a href="#" class="popup__link">Войти</a>
+        <button class="button button_popup popup__link" data-modal="login">Войти</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 @import './_black/main__text_black.css';
+@import './_hidden/main__text_hidden.css';
 .main__text {
   font-family: "Roboto";
   font-size: 18px;
